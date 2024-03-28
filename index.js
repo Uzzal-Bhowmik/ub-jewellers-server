@@ -371,7 +371,7 @@ async function run() {
       const newReview = req.body;
       const filter = { _id: new ObjectId(id) };
 
-      newReview.reviewDate = new Date();
+      newReview.reviewDate = new Date().toISOString();
 
       const result = await productCollection.updateOne(filter, {
         $push: { review: newReview },
